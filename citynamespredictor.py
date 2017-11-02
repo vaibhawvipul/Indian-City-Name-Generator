@@ -15,10 +15,8 @@ X, Y, char_idx = \
 
 #LSTM RNN 
 net = tflearn.input_data(shape=[None, maxlen, len(char_idx)])
-net = tflearn.lstm(net, 512, return_seq=True)
-net = tflearn.dropout(net, 0.5) #Adding dropout layer, it randomly switches off neurons
-net = tflearn.lstm(net, 512)
-net = tflearn.dropout(net, 0.5)
+net = tflearn.lstm(net, 512, return_seq=True, dropout=0.5)
+net = tflearn.lstm(net, 512, dropout=0.5)
 net = tflearn.fully_connected(net, len(char_idx), activation='softmax')
 net = tflearn.regression(g, optimizer='adam', loss='categorical_crossentropy',
                        learning_rate=0.001)
