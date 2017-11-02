@@ -1,7 +1,5 @@
 from __future__ import print_function, division, absolute_import
 
-from six import moves
-import ssl
 import tflearn
 from tflearn.data_utils import *
 
